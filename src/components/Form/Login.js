@@ -12,11 +12,11 @@ const Login = () => {
                 <div className='text-center my-3'>
                     <input type="email" name='email' placeholder='Enter Email' className='px-2 border py-1 w-[85%] rounded-sm' />
                 </div>
-                <div className='text-center'>
+                <div className='text-center my-3'>
                     <input type="password" name='password' placeholder='Enter Password' className='px-2 border py-1 w-[85%] rounded-sm' />
                 </div>
                 <div className='text-center my-3'>
-                    <button className='bg-blue-600 transition-all hover:bg-blue-700  px-2 py-1 rounded-md text-sky-50'>SignIn</button>
+                    <button className='bg-blue-600 transition-all hover:bg-blue-700  px-2 py-1 rounded-md text-sky-50'>Sign In</button>
                 </div>
                 <div>
                     <p>Not Have Account? Please, <Link className='text-blue-500' to={'/signup'}>Register</Link></p>
