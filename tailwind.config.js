@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend:{
+      colors:{
+        pinkBtn: '#F73D93'
+      }
+    },
   },
   plugins: [],
 }

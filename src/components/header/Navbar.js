@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link,NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {FaUserCircle} from 'react-icons/fa'
 import {MdDarkMode} from 'react-icons/md'
 
@@ -13,7 +13,7 @@ const Navbar = () => {
                 </div>
                 <ul className='flex justify-center items-center'>
                     <li className='mx-3'>
-                        <NavLink to="/">Courses</NavLink>
+                        <NavLink to="/learn">Learn</NavLink>
                     </li>
                     <li className='mx-3'>
                         <NavLink to="/">FAQ</NavLink>
