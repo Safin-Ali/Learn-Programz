@@ -3,14 +3,27 @@ import { BsGithub } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
 import { Link } from 'react-router-dom';
 
+function handleRegistrationData (e) {
+    e.preventDefault();
+    const form = e.target;
+    const userName = form.userName.value;
+    const userImageUrl = form.userThumb.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confpassword = form.confPassword.value;
+}
+
 const Registration = () => {
     return (
     <section className='flex justify-center items-center min-h-screen'>
         <div className='border px-[3%] py-[2%] rounded shadow-md'>
             <h3 className='text-center text-3xl uppercase'>Sign Up</h3>
-        <form action="">
+        <form onSubmit={handleRegistrationData}>
             <div className='text-center my-3'>
                 <input type="text" name='userName' placeholder='Enter Full Name' className='px-2 border py-1 w-[95%] rounded-sm' required/>
+            </div>
+            <div className='text-center my-3'>
+                <input type="text" name='userThumb' placeholder='Enter User Image URL' className='px-2 border py-1 w-[95%] rounded-sm' required/>
             </div>
             <div className='text-center my-3'>
                 <input type="email" name='email' placeholder='Enter Email' className='px-2 border py-1 w-[95%] rounded-sm' required/>

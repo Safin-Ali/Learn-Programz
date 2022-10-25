@@ -4,11 +4,20 @@ import { FcGoogle } from 'react-icons/fc'
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+
+    function handleLoginData (e) {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email,password)
+    }
+
     return (
         <section className='flex justify-center items-center min-h-screen'>
             <div className='border p-5 rounded shadow-md'>
                 <h3 className='text-center text-3xl uppercase'>Login</h3>
-            <form action="">
+            <form onSubmit={handleLoginData}>
                 <div className='text-center my-3'>
                     <input type="email" name='email' placeholder='Enter Email' className='px-2 border py-1 w-[85%] rounded-sm' />
                 </div>
