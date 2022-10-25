@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link,NavLink } from 'react-router-dom';
+import {FaUserCircle} from 'react-icons/fa'
+import {MdDarkMode} from 'react-icons/md'
 
 const Navbar = () => {
     return (
@@ -20,10 +22,10 @@ const Navbar = () => {
                         <NavLink to="/">Blog</NavLink>
                     </li>
                     <li className='mx-3'>
-                        <NavLink to="/">dark Button</NavLink>
+                        <MdDarkMode className='text-3xl cursor-pointer'></MdDarkMode>
                     </li>
                     <li className='mx-3'>
-                        <NavLink to="/">User profile</NavLink>
+                        <p><FaUserCircle className='text-3xl'></FaUserCircle></p>
                     </li>
                 </ul>
             </nav>
