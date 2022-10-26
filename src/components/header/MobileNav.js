@@ -3,7 +3,6 @@ import {NavLink} from 'react-router-dom'
 import {AiOutlineClose} from 'react-icons/ai'
 
 const MobileNav = ({bool,handleMNav}) => {
-    console.log(bool,handleMNav)
     return (
         <div className='w-screen text-center relative bg-[#000000af]'>
             <AiOutlineClose onClick={()=>handleMNav()} className='text-4xl cursor-pointer text-white absolute right-0'></AiOutlineClose>

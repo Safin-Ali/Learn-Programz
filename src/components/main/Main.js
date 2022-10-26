@@ -6,21 +6,34 @@ import {BsCaretRightFill} from 'react-icons/bs';
 
 const Main = () => {
     const [translateX,setTranslateX] = useState(false);
-    const [openNavBtn,setOpenNavBoo] = useState(false)
+    const [openNavBtn,setOpenNavBoo] = useState(false);
+    const [currScrlNum,setCurrSclNum] = useState();
+
+
     function handleMobileNav () {
         setTranslateX(!translateX);
         setOpenNavBoo(false)
-    }
+        window.scrollTo({top: currScrlNum, left: 0, behavior: 'smooth'});
+        console.log(currScrlNum)
+    };
+    
     return (
         <section className='relative'>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <div className='absolute top-0'>
+
             {/* Mobile Navbar */}
-            <p><BsCaretRightFill onClick={()=>{
-                setOpenNavBoo(true)
-                setTranslateX(!translateX)
-                }} className={`cursor-pointer text-xl fixed top-1/2 ${openNavBtn ? 'hidden' : 'block'} bg-[#31313154] rounded-r-2xl mt-0`}></BsCaretRightFill></p>
+
+            <BsCaretRightFill
+                onClick={()=>{
+                setOpenNavBoo(true);
+                setTranslateX(!translateX);
+                setCurrSclNum(window.scrollY)
+                window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                }} className={`cursor-pointer text-xl fixed top-1/2 ${openNavBtn ? 'hidden' : 'block'} bg-[#31313154] rounded-r-2xl mt-0`}>
+            </BsCaretRightFill>
+
             <div className=''>
                 <div className={`mx-auto translate-x-[${!translateX ? -999 : 0}%]`}>
                     <MobileNav bool={translateX} handleMNav={handleMobileNav}></MobileNav>

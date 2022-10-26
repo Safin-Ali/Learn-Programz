@@ -16,15 +16,12 @@ const AutoTyping = () => {
     function writing () {
             setTimeout(()=>{
                 setText(textArr[0])
-                console.log(0)
             },0)
             setTimeout(()=>{
                 setText(textArr[1])
-                console.log(1)
             },6000)
             setTimeout(()=>{
                 setText(textArr[2])
-                console.log(2)
             },12000)
     }
 
