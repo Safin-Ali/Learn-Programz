@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { APIData } from '../../data/DataFetch';
 
 
 function TopicsListCard ({data}) {
     const {logo,name,seo,seoImage,realese,summary} = data;
-    console.log(data)
     return(
         <div className='border rounded-md drop-shadow-sm py-3'>
             <div className='mx-auto my-3 rounded-lg w-1/2 shadow-md'>
@@ -18,9 +18,9 @@ function TopicsListCard ({data}) {
             </div>
                 <p className='italic text-center font-medium'>CEO: <strong className='text-slate-600'>{seo}</strong></p>
             <div>
-                <p className='font-medium px-5 text-center text-gray-900 my-2'>{summary.slice(0,150)+'...'}</p>
+                <p className='font-medium px-5 text-center text-gray-900 my-3'>{summary.slice(0,150)+'...'}</p>
             </div>
-            <div className='text-center'><button className='bg-pinkBtn py-1 px-2 rounded my-1 text-white hover:bg-pink-600 duration-150'>Start {name}</button></div>
+            <div className='text-center'><Link to={`/category/${name.toLowerCase()}`} className='bg-pinkBtn py-1 px-2 rounded my-1 text-white hover:bg-pink-600 duration-150'>Start {name}</Link></div>
         </div>
     )
 }
