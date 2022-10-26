@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import {FaUserCircle} from 'react-icons/fa'
 import {MdDarkMode} from 'react-icons/md';
 import {BiCodeAlt} from 'react-icons/bi';
+import MobileNav from './MobileNav';
 
 const Navbar = () => {
     return (
@@ -11,7 +12,7 @@ const Navbar = () => {
                 <div className='flex justify-center items-center'>
                     <Link to={'/home'} className='text-3xl text-slate-800'>Learn<BiCodeAlt className='inline text-pinkBtn text-4xl'></BiCodeAlt>Programz</Link>
                 </div>
-                <ul className='flex text-slate-900 font-semibold justify-center items-center'>
+                <ul className='hidden lg:flex text-slate-900 font-semibold justify-center items-center'>
                     <li className='mx-3'>
                         <NavLink to="/learn">Learn</NavLink>
                     </li>

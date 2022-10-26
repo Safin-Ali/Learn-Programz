@@ -8,9 +8,9 @@ function TopicsListCard ({data}) {
     return(
         <div className='border rounded-md drop-shadow-sm py-3'>
             <div className='mx-auto my-3 rounded-lg w-1/2 shadow-md'>
-                <img src={logo} className='p-1 min-h-[199px]' alt="Language Thumb" />
+                <img src={logo} className='p-1 lg:min-h-[199px]' alt="Language Thumb" />
             </div>
-            <div className='flex justify-center border m-20 rounded-lg my-5 items-center'>
+            <div className='flex flex-col-reverse lg:flex-row justify-center border m-20 rounded-lg my-5 items-center'>
                 <p className='text-center mx-3'>Realsed: <strong className='text-zinc-600'>{realese}</strong></p>
                 <div className='w-14 mx-3 rounded-full my-2 shadow-lg'>
                     <img className='rounded-full p-0.5' src={seoImage} alt="Founder" />
@@ -29,7 +29,7 @@ const TopicsList = () => {
     const apiData = useContext(APIData)
     return (
         <section className='my-10 container mx-auto'>
-            <div className='grid gap-10 justify-center grid-cols-3'>
+            <div className='grid gap-10 justify-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 px-6'>
                 {
                     apiData?.map(element => <TopicsListCard key={element.id} data={element}></  TopicsListCard>)
                 }

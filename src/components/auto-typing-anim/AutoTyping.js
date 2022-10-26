@@ -13,7 +13,7 @@ const AutoTyping = () => {
 
 
 
-    function xx () {
+    function writing () {
             setTimeout(()=>{
                 setText(textArr[0])
                 console.log(0)
@@ -29,8 +29,8 @@ const AutoTyping = () => {
     }
 
     useEffect(()=>{
-        xx()
-        setInterval(xx,18000)
+        writing()
+        setInterval(writing,18000)
     },[])
     
 
