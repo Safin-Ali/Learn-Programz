@@ -1,17 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import {FaUserCircle} from 'react-icons/fa'
-import {MdDarkMode} from 'react-icons/md'
+import {MdDarkMode} from 'react-icons/md';
+import {BiCodeAlt} from 'react-icons/bi';
 
 const Navbar = () => {
     return (
-        <header className='bg-green-500'>
+        <header className='bg-[#f0f4f5] shadow-md'>
             <nav className='flex justify-between container mx-auto p-5'>
                 <div className='flex justify-center items-center'>
-                    <h1>Brand Text</h1>
-                    <img src="" alt="Brand Logo" />
+                    <Link to={'/home'} className='text-3xl text-slate-800'>Learn<BiCodeAlt className='inline text-pinkBtn text-4xl'></BiCodeAlt>Programz</Link>
                 </div>
-                <ul className='flex justify-center items-center'>
+                <ul className='flex text-slate-900 font-semibold justify-center items-center'>
                     <li className='mx-3'>
                         <NavLink to="/learn">Learn</NavLink>
                     </li>
