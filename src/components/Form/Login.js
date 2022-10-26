@@ -3,10 +3,12 @@ import { BsGithub } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
 import { Link,useNavigate } from 'react-router-dom';
 import { AuthData } from '../Firebase/AuthContext';
+import LoginImg from './images/login-image.png';
+import {BiCodeAlt} from 'react-icons/bi';
 
 const Login = () => {
 
-    const {logIn,userData,setLogged} = useContext(AuthData);
+    const {logIn,userData,setLogged,signWithGoogle,signWithGithub} = useContext(AuthData);
 
     const navigate = useNavigate();
 
@@ -37,8 +39,13 @@ const Login = () => {
     }
     else{
         return (
-            <section className='flex justify-center items-center min-h-screen'>
-                <div className='border px-[2%] py-[1%] rounded shadow-md'>
+            <>
+            <Link to={'/home'} className='text-3xl text-center block text-slate-800 py-[4%]'>Learn<BiCodeAlt className='inline text-pinkBtn text-4xl'></BiCodeAlt>Programz</Link>
+            <section className='flex flex-col lg:flex-row justify-center items-center min-h-full'>
+                <div>
+                    <img src={LoginImg} alt="" />
+                </div>
+                <div className='border px-[6%] md:px-[10%] lg:px-[3%] mb-5 py-[3%] rounded shadow-md'>
                     <h3 className='text-center text-3xl uppercase'>Login</h3>
                 <form onSubmit={handleLoginData}>
                     <div className='text-center my-3'>
@@ -61,13 +68,14 @@ const Login = () => {
                     <div>
                         <p className='text-center'>Continue With</p>
                         <div className='flex justify-center'>
-                            <p className='mx-1 p-1 cursor-pointer border rounded-full'><FcGoogle className='text-2xl'></FcGoogle></p>
-                            <p className='mx-1 p-1 cursor-pointer border rounded-full'><BsGithub className='text-2xl'></BsGithub></p>
+                            <p className='mx-1 p-1 cursor-pointer border rounded-full' onClick={signWithGoogle}><FcGoogle className='text-2xl'></FcGoogle></p>
+                            <p onClick={signWithGithub} className='mx-1 p-1 cursor-pointer border rounded-full'><BsGithub className='text-2xl'></BsGithub></p>
                         </div>
                     </div>
                 </form>
                 </div>
             </section>
+            </>
         );
     }
 };

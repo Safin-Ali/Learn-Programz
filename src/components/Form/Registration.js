@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { BsGithub } from 'react-icons/bs'
-import { FcGoogle } from 'react-icons/fc'
+import { BsGithub } from 'react-icons/bs';
+import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthData } from '../Firebase/AuthContext';
+import Registerimg from './images/register-image.png';
+import {BiCodeAlt} from 'react-icons/bi';
 
 
 const Registration = () => {
@@ -53,8 +55,13 @@ const Registration = () => {
     }
     else{
         return (
-            <section className='flex justify-center items-center min-h-screen'>
-                <div className='border px-[3%] py-[2%] rounded shadow-md'>
+        <>
+            <Link to={'/home'} className='text-3xl text-center block text-slate-800 py-[4%]'>Learn<BiCodeAlt className='inline text-pinkBtn text-4xl'></BiCodeAlt>Programz</Link>
+            <section className='flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 mb-5 lg:justify-evenly items-center min-h-full'>
+                    <div>
+                    <img src={Registerimg} alt="" />
+                </div>
+                <div className='border px-[6%] md:px-[10%] lg:px-[3%] py-[2%] rounded shadow-md'>
                     <h3 className='text-center text-3xl uppercase'>Sign Up</h3>
                 <form onSubmit={handleRegistrationData}>
                     <div className='text-center my-3'>
@@ -81,6 +88,7 @@ const Registration = () => {
                 </form>
                 </div>
             </section>
+        </>
             );
     }
 };
