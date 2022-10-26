@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { DataFetch } from './data/DataFetch';
+import { AuthContext } from './components/Firebase/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <AuthContext>
     <DataFetch>
       <App></App>
     </DataFetch>
+  </AuthContext>
 );
 
 // If you want to start measuring performance in your app, pass a function

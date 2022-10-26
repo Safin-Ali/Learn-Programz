@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, NavLink, } from 'react-router-dom';
 import {FaUserCircle} from 'react-icons/fa'
 import {MdDarkMode} from 'react-icons/md';
 import {BiCodeAlt} from 'react-icons/bi';
-import MobileNav from './MobileNav';
+import { AuthData } from '../Firebase/AuthContext';
 
 const Navbar = () => {
+
+    const {userData,logOut} = useContext(AuthData);
+
+    function handleSignOut () {
+        logOut()
+        .then(()=>{
+            localStorage.removeItem('LP_Logged')
+        })
+    }
+    
     return (
         <header className='bg-[#f0f4f5] shadow-md'>
             <nav className='flex justify-between container mx-auto p-5'>
@@ -26,7 +36,11 @@ const Navbar = () => {
                         <MdDarkMode className='text-3xl cursor-pointer'></MdDarkMode>
                     </li>
                     <li className='mx-3'>
-                        <p><FaUserCircle className='text-3xl'></FaUserCircle></p>
+                            {userData? <div className='w-10 cursor-pointer' onClick={handleSignOut}><img className='rounded-full' src={userData.photoURL} alt="User Avatar" /></div>
+                            : <Link className='text-pinkBtn' to={'/login'} >
+                            <FaUserCircle className='text-3xl'></FaUserCircle>
+                            </Link>
+                            }
                     </li>
                 </ul>
             </nav>
