@@ -14,7 +14,7 @@ const Slider = () => {
         return new Promise((res,rej)=>{
             setInterval(()=>{
                res(countCondition())
-            },1000)
+            },6000)
         })
     }
 

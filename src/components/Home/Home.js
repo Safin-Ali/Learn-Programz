@@ -4,13 +4,13 @@ import Slider from '../slider/Slider';
 
 const Home = () => {
     return (
-        <section className='grid grid-cols-2 my-10'>
+        <section className='grid grid-cols-1 lg:grid-cols-2 items-center my-10'>
             {/* slider */}
-            <div>
+            <div className='lg:border-r-4 border-pink-500 shadow-md lg:shadow-none'>
                 <Slider></Slider>
             </div>
             {/* Text Change Animation */}
-            <div>
+            <div className='flex items-center px-6'>
                <AutoTyping></AutoTyping>
             </div>
         </section>

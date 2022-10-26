@@ -5,10 +5,9 @@ const AutoTyping = () => {
 
     const [count,setCount] = useState(0);
     const textArr = [
-        'xxxxxxxxxxxxxxxxxx',
-        'mcamckamcmamclacmamlca',
-        'abcancanckancancka',
-        'abcanckacnkacalcla'
+        'is can help you understand technology.',
+        'is can enhance problem-solving skills.',
+        'is can complement creativity.',
     ]
     const [text,setText] = useState();
 
@@ -22,24 +21,24 @@ const AutoTyping = () => {
             setTimeout(()=>{
                 setText(textArr[1])
                 console.log(1)
-            },4000)
+            },6000)
             setTimeout(()=>{
                 setText(textArr[2])
                 console.log(2)
-            },8000)
+            },12000)
     }
 
     useEffect(()=>{
         xx()
-        setInterval(xx,12000)
+        setInterval(xx,18000)
     },[])
     
 
     return (
         <div>
-            <h1>I am Safin Ali |</h1>
-            <p className='text'>Programming language :
-            <span className='text changing-text'> {text}
+            <h1 className='text-3xl my-10'><span className='text-pinkBtn'>Hi,</span> I am Safin Ali <span className='text-pinkBtn text-4xl'>|</span></h1>
+            <p className='text text-xs text-center lg:text-left lg:text-base text-pinkBtn font-monoLisa-bold'>Programming Language :
+            <span className='text capitalize changing-text text-gray-800'> {text}
             </span>
             </p>
 

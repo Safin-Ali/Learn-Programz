@@ -1,4 +1,32 @@
 
+
+@font-face {
+    font-family: "MonaLisaBold";
+    src: url('./custom_font/MonoLisa-Bold.woff')
+        format("woff");
+  }
+@font-face {
+    font-family: "MonaLisaNormal";
+    src: url('./custom_font/MonoLisa-Regular.woff')
+        format("woff");
+  }
+@font-face {
+    font-family: "MonaLisaMedium";
+    src: url('./custom_font/MonoLisa-Medium.woff')
+        format("woff");
+  }
+
+  .font-monoLisa-bold{
+    font-family: MonaLisaBold;
+  }
+  .font-monoLisa-regular{
+    font-family: MonaLisaNormal;
+  }
+  .font-monoLisa-med{
+    font-family: MonaLisaMedium;
+  }
+  
+
 .text {
     position: relative;
 }
@@ -13,7 +41,7 @@
     height: 100%;
     background-color: #f1f4f6;
     border-left: 1px solid red;
-    animation: move 4s steps(20) infinite;
+    animation: move 6s steps(20) infinite;
 }
 
 @keyframes move {
