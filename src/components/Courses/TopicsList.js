@@ -1,12 +1,16 @@
-import React, { useContext } from 'react';
+import React, { createRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { APIData } from '../../data/DataFetch';
+import Pdf from "react-to-pdf";
 
 
 function TopicsListCard ({data}) {
     const {logo,name,seo,seoImage,realese,summary} = data;
+    
+    const pdf = createRef()
+    
     return(
-        <div className='border rounded-md drop-shadow-sm py-3'>
+        <div ref={pdf} className='border rounded-md drop-shadow-sm py-3'>
             <div className='mx-auto my-3 rounded-lg w-1/2 shadow-md'>
                 <img src={logo} className='p-1 lg:min-h-[199px]' alt="Language Thumb" />
             </div>
@@ -20,7 +24,14 @@ function TopicsListCard ({data}) {
             <div>
                 <p className='font-medium px-5 text-center text-gray-900 my-3'>{summary.slice(0,150)+'...'}</p>
             </div>
-            <div className='text-center'><Link to={`/category/${name.toLowerCase()}`} className='bg-pinkBtn py-1 px-2 rounded my-1 text-white hover:bg-pink-600 duration-150'>Start {name}</Link></div>
+
+            <div className='flex justify-around items-center'>
+                <div className='text-center'><Link to={`/category/${name.toLowerCase()}`}   className='bg-pinkBtn py-1 px-2 rounded my-1 text-white hover:bg-pink-600     duration-150'>Start {name}</Link></div>
+                <Pdf  targetRef={pdf} filename={`${name}-offline.pdf`}>
+                    {({ toPdf }) => <button className='bg-pinkBtn py-1 px-2 rounded my-1 text-white hover:bg-pink-600 duration-150' onClick={toPdf}>Download</button>}
+                </Pdf>
+            </div>
+            
         </div>
     )
 }

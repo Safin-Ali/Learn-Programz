@@ -39,10 +39,10 @@ const RightSide = () => {
                 }
                 </p>
                 <p className='my-2 font-medium'>Email: {email}</p>
-                <p className='my-2 font-medium text-center capitalize text-orange-600'>{providerId} 🔥</p>
                 <p className='my-2 font-medium'>{
                     phoneNumber ? phoneNumber : 'Not Added Phone Number'
                 }</p>
+                <p className='my-2 font-medium text-center capitalize text-orange-600'>{providerId} 🔥</p>
                 <button onClick={handleSignOut} className='bg-pinkBtn my-5 px-2 py-1 rounded-md text-white hover:bg-pink-500'>Logout</button>
             </div>
         </div>
