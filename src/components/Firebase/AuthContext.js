@@ -13,7 +13,7 @@ const AuthContext = ({children}) => {
     const loggedValue = exitLocaleStorageData === 'true' ? true : false;
 
     const [userData,setUserData] = useState(null);
-    const [loaded,setLoaded] = useState(false);
+    const [loaded,setLoaded] = useState(true);
     const [logged,setLogged] = useState(loggedValue);
 
     const googleProv = new GoogleAuthProvider(app);
@@ -44,7 +44,7 @@ const AuthContext = ({children}) => {
     useEffect(()=>{
         const stopObs = onAuthStateChanged(auth,user=>{
             logged && setUserData(user);
-            setLoaded(true);
+            setLoaded(false);
         })
         return () => stopObs();
     },[logged])
