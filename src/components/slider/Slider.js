@@ -32,7 +32,6 @@ const Slider = () => {
         .then(value => {
             setCount(value)
             setImgSlide(imgArray[count])
-            console.log(value)
         })
     },[count])
 

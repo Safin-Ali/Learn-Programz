@@ -1,4 +1,5 @@
 import React from 'react';
+import AutoTyping from '../auto-typing-anim/AutoTyping';
 import Slider from '../slider/Slider';
 
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
             </div>
             {/* Text Change Animation */}
             <div>
-                <h1>RTCC</h1>
+               <AutoTyping></AutoTyping>
             </div>
         </section>
     );
