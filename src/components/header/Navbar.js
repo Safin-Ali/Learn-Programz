@@ -14,13 +14,13 @@ const Navbar = () => {
                 </div>
                 <ul className='hidden lg:flex text-slate-900 font-semibold justify-center items-center'>
                     <li className='mx-3'>
-                        <NavLink to="/learn">Learn</NavLink>
+                        <NavLink to="/learn" className='hover:text-pinkBtn duration-100'>Learn</NavLink>
                     </li>
                     <li className='mx-3'>
-                        <NavLink to="/">FAQ</NavLink>
+                        <NavLink to="/" className='hover:text-pinkBtn duration-100'>FAQ</NavLink>
                     </li>
                     <li className='mx-3'>
-                        <NavLink to="/">Blog</NavLink>
+                        <NavLink to="/" className='hover:text-pinkBtn duration-100'>Blog</NavLink>
                     </li>
                     <li className='mx-3'>
                         <MdDarkMode className='text-3xl cursor-pointer'></MdDarkMode>

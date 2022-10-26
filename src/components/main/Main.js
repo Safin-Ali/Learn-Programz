@@ -21,7 +21,7 @@ const Main = () => {
         <section className='relative'>
             <Navbar></Navbar>
             <Outlet></Outlet>
-            <div className='absolute top-0'>
+            <div className='lg:hidden'>
 
             {/* Mobile Navbar */}
 
@@ -34,8 +34,8 @@ const Main = () => {
                 }} className={`cursor-pointer text-xl fixed top-1/2 ${openNavBtn ? 'hidden' : 'block'} bg-[#31313154] rounded-r-2xl mt-0`}>
             </BsCaretRightFill>
 
-            <div className=''>
-                <div className={`mx-auto translate-x-[${!translateX ? -999 : 0}%]`}>
+            <div>
+                <div className={`mx-auto absolute top-0 translate-x-[${!translateX ? -999 : 0}%]`}>
                     <MobileNav bool={translateX} handleMNav={handleMobileNav}></MobileNav>
                 </div>
                 </div>
