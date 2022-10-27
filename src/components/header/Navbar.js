@@ -1,13 +1,16 @@
 import React, { useContext, } from 'react';
 import { Link, useNavigate, NavLink, } from 'react-router-dom';
 import {FaUserCircle} from 'react-icons/fa'
-import {MdDarkMode} from 'react-icons/md';
+import { BsFillMoonFill,BsFillSunFill} from 'react-icons/bs';
 import {BiCodeAlt} from 'react-icons/bi';
 import { AuthData } from '../Firebase/AuthContext';
+import { ThemeUI } from '../darkTheme/DarkTheme';
 
 const Navbar = () => {
 
     const {userData,logOut,} = useContext(AuthData);
+
+    const {themeUI,setTheme} = useContext(ThemeUI);
 
     const navigate = useNavigate();
 
@@ -38,10 +41,15 @@ const Navbar = () => {
                     </li>
                 </ul>
                     <div className='mx-3'>
-                        <MdDarkMode className='text-3xl cursor-pointer'></MdDarkMode>
+                        {
+                            themeUI ? 
+                            <BsFillSunFill onClick={()=>setTheme(!themeUI)} className='text-2xl text-gray-900 cursor-pointer'></BsFillSunFill>
+                            :
+                            <BsFillMoonFill onClick={()=>setTheme(!themeUI)} className='text-2xl text-gray-900 cursor-pointer'></BsFillMoonFill>
+                        }
                     </div>
                     <div className='mx-3'>
-                            {userData? <div className='w-10 cursor-pointer' onClick={handleSignOut}><img className='rounded-full' src={userData.photoURL} alt="User Avatar" /></div>
+                            {userData? <div title={userData.displayName} className='w-10 cursor-pointer' onClick={handleSignOut}><img className='rounded-full' src={userData.photoURL} alt="User Avatar" /></div>
                             : <Link className='text-pinkBtn' to={'/login'} >
                             <FaUserCircle className='text-3xl'></FaUserCircle>
                             </Link>

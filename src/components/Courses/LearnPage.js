@@ -8,7 +8,6 @@ import LearnSubject from './LearnSubject';
 
 const LearnPage = () => {
     const fetchData = useLoaderData();
-    console.log(fetchData)
     return (
         <div className='grid gap-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-5 '>
             <div>

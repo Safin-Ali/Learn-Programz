@@ -5,12 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { DataFetch } from './data/DataFetch';
 import { AuthContext } from './components/Firebase/AuthContext';
+import DarkTheme from './components/darkTheme/DarkTheme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthContext>
     <DataFetch>
-      <App></App>
+      <DarkTheme>
+        <App></App>
+      </DarkTheme>
     </DataFetch>
   </AuthContext>
 );
