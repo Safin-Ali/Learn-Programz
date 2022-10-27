@@ -8,7 +8,7 @@ import {BiCodeAlt} from 'react-icons/bi';
 
 const Login = () => {
 
-    const {logIn,userData,anonyMouseUpdate,setLogged,signWithGoogle,signWithGithub} = useContext(AuthData);
+    const {logIn,userData,anonyMouseUpdate,signWithGoogle,signWithGithub} = useContext(AuthData);
 
     const navigate = useNavigate();
 

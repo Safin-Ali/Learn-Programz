@@ -6,6 +6,7 @@ import Login from '../components/Form/Login';
 import Registration from '../components/Form/Registration';
 import Home from '../components/Home/Home';
 import Main from '../components/main/Main';
+import QuestionsAnswer from '../components/questions-data/QuestionsAnswer';
 import ErrorPage from '../Error/ErrorPage';
 import PrivateRoute from '../private-route/PrivateRoute';
 
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
 ]},
     {path:'/login',element:<Login></Login>},
     {path:'/signup',element:<Registration></Registration>},
+    {path:'/questions/ph/sa', loader: async () => fetch('https://programz-api.vercel.app/questions/ph/sa'),element:<QuestionsAnswer></QuestionsAnswer>},
 ])
 
 export default router;

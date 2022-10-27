@@ -30,7 +30,7 @@ function TopicsListCard ({data}) {
                     {({ toPdf }) => <button className='bg-pinkBtn py-1 px-2 rounded my-1 text-white hover:bg-pink-600 duration-150' onClick={toPdf}>Download</button>}
                 </Pdf>
             </div>   
-            <span className=' bg-pinkBtn absolute -right-2 -top-2 w-5 h-5 rounded-full text-center text-slate-50'>{data?.data.length}</span>  
+            <span className=' bg-pinkBtn absolute -right-2 -top-2 w-5 h-5 rounded-md text-center text-slate-50'>{data?.data.length}</span>  
         </div>
     )
 }

@@ -34,7 +34,7 @@ const Navbar = () => {
                         <NavLink to="/" className='hover:text-pinkBtn duration-100'>FAQ</NavLink>
                     </li>
                     <li className='mx-3'>
-                        <NavLink to="/" className='hover:text-pinkBtn duration-100'>Blog</NavLink>
+                        <NavLink to="/questions/ph/sa" className='hover:text-pinkBtn duration-100'>Blog</NavLink>
                     </li>
                 </ul>
                     <div className='mx-3'>
