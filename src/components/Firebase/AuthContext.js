@@ -8,13 +8,8 @@ const AuthContext = ({children}) => {
 
     const auth = getAuth(app);
 
-    const exitLocaleStorageData = localStorage.getItem('LP_Logged');
-
-    const loggedValue = exitLocaleStorageData === 'true' ? true : false;
-
     const [userData,setUserData] = useState(null);
     const [loaded,setLoaded] = useState(true);
-    const [logged,setLogged] = useState(loggedValue);
 
     const googleProv = new GoogleAuthProvider(app);
     const githubProv = new GithubAuthProvider(app);
@@ -40,18 +35,23 @@ const AuthContext = ({children}) => {
             photoURL: `${prflImg}`
         });
     }
+    const anonyMouseUpdate = (bool) => {
+        return updateProfile(auth.currentUser,{
+            isAnonymous: {bool},
+        });
+    }
 
     useEffect(()=>{
         const stopObs = onAuthStateChanged(auth,user=>{
-            logged && setUserData(user);
+            setUserData(user);
             setLoaded(false);
         })
         return () => stopObs();
-    },[logged])
+    },[])
 
     console.log(userData)
 
-    const authInfo = {logIn,userData,loaded,signUp,logOut,signWithGoogle,signWithGithub,profileUpdate,exitLocaleStorageData,setLogged};
+    const authInfo = {logIn,userData,loaded,signUp,logOut,signWithGoogle,signWithGithub,profileUpdate,anonyMouseUpdate};
 
     return (
         <AuthData.Provider value={authInfo}>

@@ -8,7 +8,7 @@ import {BiCodeAlt} from 'react-icons/bi';
 
 const Login = () => {
 
-    const {logIn,userData,setLogged,signWithGoogle,signWithGithub} = useContext(AuthData);
+    const {logIn,userData,anonyMouseUpdate,setLogged,signWithGoogle,signWithGithub} = useContext(AuthData);
 
     const navigate = useNavigate();
 
@@ -21,8 +21,8 @@ const Login = () => {
         const password = form.password.value;
         logIn(email,password)
         .then(result => {
-            localStorage.setItem('LP_Logged',true)
-            setLogged(true)
+            anonyMouseUpdate(true)
+            .then(()=>{})
             navigate('/')
             
         })
@@ -34,8 +34,8 @@ const Login = () => {
         })
 
     }
-    if(userData){
-        
+    if(userData?.isAnonymous){
+        navigate('/')
     }
     else{
         return (

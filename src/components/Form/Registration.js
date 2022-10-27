@@ -24,7 +24,6 @@ const Registration = () => {
         const confPassword = form.confPassword.value;
         const finalpass = checkPassValid(form,password,confPassword);
         if(finalpass){
-            console.log(password,finalpass)
             finalpass && signUp(email,finalpass)
             .then(result => {
                 profileUpdate(userName,userImageUrl)
@@ -51,7 +50,7 @@ const Registration = () => {
     }
 
     if(userData) {
-        return
+        navigate('/login')
     }
     else{
         return (
