@@ -14,7 +14,6 @@ const Main = () => {
         setTranslateX(!translateX);
         setOpenNavBoo(false)
         window.scrollTo({top: currScrlNum, left: 0, behavior: 'smooth'});
-        console.log()
     };
     
     return (
@@ -36,7 +35,7 @@ const Main = () => {
             </BsCaretRightFill>
 
             <div>
-                <div className={`mx-auto absolute top-0 translate-x-[${!translateX ? -999 : 0}%]`}>
+                <div className={`mx-auto absolute top-0 ${!translateX ? '-translate-x-full' : 'translate-x-0'}`}>
                     <MobileNav bool={translateX} handleMNav={handleMobileNav}></MobileNav>
                 </div>
                 </div>
