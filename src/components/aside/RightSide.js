@@ -25,7 +25,7 @@ const RightSide = () => {
     }
 
     return (
-        <div className='py-10 border-l flex justify-center items-center flex-col min-h-screen sticky top-0'>
+        <div className='py-10 border-l flex justify-center items-center flex-col min-h-screen lg:sticky lg:top-0'>
             {/* User Profile */}
             <div className='w-20 rounded-full'>
                 <img src={userData && photoURL} className='rounded-lg' alt="User Avatar" />
