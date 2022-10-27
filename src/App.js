@@ -6,7 +6,7 @@ import router from './Routes/Routes.js';
 function App() {
   const {themeUI} = useContext(ThemeUI);
   return (
-    <div className={`py-5 ${!themeUI ? 'bg-[#F1F4F6]':'bg-[#1B2430]'}`}>
+    <div className={`pb-5 ${!themeUI ? 'bg-[#F1F4F6]':'bg-[#1B2430]'}`}>
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

@@ -58,6 +58,15 @@ const Login = () => {
 
     }
 
+
+    // Toggle Show/Hide Password
+
+    // set input type password to text
+
+    const [show,setShow] = useState(false);
+
+    const togglePassShow = () => setShow(!show);
+
     // Condition For Redirect Home Page
 
     if(userData?.uid){
@@ -75,10 +84,13 @@ const Login = () => {
                     <h3 className={`text-center ${!themeUI ? 'text-slate-900' : 'text-slate-200'} text-3xl uppercase`}>Login</h3>
                 <form onSubmit={handleLoginData}>
                     <div className='text-center my-3'>
-                        <input type="email" name='email' placeholder='Enter Email' className={`px-2 ${!themeUI ? 'bg-slate-50' : 'bg-slate-600'} border py-1 w-[95%] rounded-sm`} />
+                        <input type="email" name='email' placeholder='Enter Email' className={`px-2 border py-1 w-[95%] ${!themeUI ? 'bg-slate-50 text-slate-800' : 'bg-slate-800 text-slate-300'} font-medium rounded-sm' required`} />
                     </div>
                     <div className='text-center my-3'>
-                        <input type="password" name='password' placeholder='Enter Password' className={`px-2 ${!themeUI ? 'bg-slate-50' : 'bg-slate-600'} border py-1 w-[95%] rounded-sm`} />
+                        <input type={!show?'password':'text'} name='password' placeholder='Enter Password' className={`px-2 border py-1 w-[95%] ${!themeUI ? 'bg-slate-50 text-slate-800' : 'bg-slate-800 text-slate-300'} font-medium rounded-sm' required`} />
+                    </div>
+                    <div className='text-center my-3'>
+                       <p className={`text-left ${!themeUI ? 'text-slate-900' : 'text-slate-200'}`}><input className='mx-2 w-4 h-4' type="checkbox" onClick={togglePassShow}/>{!show? 'Show' : 'Hide'}</p>
                     </div>
                     <div className='text-center my-3'>
                         <button className='bg-blue-600 transition-all hover:bg-blue-700  px-2 py-1 rounded-md text-sky-50'>Sign In</button>
@@ -92,10 +104,10 @@ const Login = () => {
                         <span className={`inline-block h-[1px] ${!themeUI ? 'bg-slate-900' : 'bg-slate-200'} w-full`}></span>
                     </div>
                     <div>
-                        <p className={`text-center ${!themeUI ? 'text-slate-900' : 'text-slate-200'}`}>Continue With</p>
+                        <p className={`my-1 text-center ${!themeUI ? 'text-slate-900' : 'text-slate-200'}`}>Continue With</p>
                         <div className='flex justify-center'>
-                            <p className='mx-1 p-1 cursor-pointer border rounded-full' onClick={signWithGoogle}><FcGoogle className='text-2xl'></FcGoogle></p>
-                            <p onClick={signWithGithub} className='mx-1 p-1 cursor-pointer border rounded-full'><BsGithub className={`text-2xl ${!themeUI ? 'text-stone-900' : 'text-slate-200'}`}></BsGithub></p>
+                            <p className='mx-2 p-1 cursor-pointer border rounded-full' onClick={signWithGoogle}><FcGoogle className='text-2xl'></FcGoogle></p>
+                            <p onClick={signWithGithub} className='mx-2 p-1 cursor-pointer border rounded-full'><BsGithub className={`text-2xl ${!themeUI ? 'text-stone-900' : 'text-slate-200'}`}></BsGithub></p>
                         </div>
                     </div>
                 </form>

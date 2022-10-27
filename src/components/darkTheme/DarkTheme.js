@@ -7,12 +7,14 @@ const DarkTheme = ({children}) => {
 
   const existTheme = localStorage.getItem('theme');
 
-    const [themeUI,setTheme] = useState(false);
+  // Theme Default Value
+
+    const [themeUI,setTheme] = useState(true);
 
     const themeData = {themeUI,setTheme};
 
     useEffect(()=>{
-      existTheme === 'dark' ? setTheme(true) : setTheme(false);
+      existTheme === 'light' ? setTheme(false) : setTheme(true);
     },[])
 
     const getCurrThemeName = !themeUI ? 'light' : 'dark'
