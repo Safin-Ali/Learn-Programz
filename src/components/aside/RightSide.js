@@ -4,6 +4,7 @@ import LoadingAnim from '../loading-anim/LoadingAnim';
 import {BsPersonCheckFill} from 'react-icons/bs'
 import {GrFormClose} from 'react-icons/gr'
 import { useNavigate } from 'react-router-dom';
+import { ThemeUI } from '../darkTheme/DarkTheme';
 
 const RightSide = () => {
 
@@ -12,6 +13,8 @@ const RightSide = () => {
     const {photoURL,phoneNumber,emailVerified,email,displayName,providerId} = userData;
 
     const navigate = useNavigate();
+
+    const {themeUI} = useContext(ThemeUI);
 
     function handleSignOut () {
         logOut()
@@ -27,13 +30,13 @@ const RightSide = () => {
             <div className='w-20 rounded-full'>
                 <img src={userData && photoURL} className='rounded-lg' alt="User Avatar" />
             </div>
-            <div className='my-10'>
+            <div className={`my-10 ${!themeUI ? 'text-slate-800' : 'text-slate-100'}`}>
                 <p className='my-2 font-medium'>{
                     displayName ? displayName :  <LoadingAnim></LoadingAnim>
                 }</p>
                 <p className='my-2 font-medium'>Email Varified: {
                 emailVerified ? 
-                <BsPersonCheckFill className='inline text-lg text-slate-800'></BsPersonCheckFill>
+                <BsPersonCheckFill className={`inline text-lg ${!themeUI ? 'text-slate-800' : 'text-slate-200'}`}></BsPersonCheckFill>
                 :
                 <GrFormClose className='inline text-lg text-red-600'></GrFormClose>
                 }

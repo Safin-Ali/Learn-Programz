@@ -1,25 +1,31 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import MobileNav from '../header/MobileNav';
 import Navbar from '../header/Navbar';
 import {BsCaretRightFill} from 'react-icons/bs';
+import { ThemeUI } from '../darkTheme/DarkTheme';
 
 const Main = () => {
     const [translateX,setTranslateX] = useState(false);
-    const [openNavBtn,setOpenNavBoo] = useState(false);
-    const [currScrlNum,setCurrSclNum] = useState();
 
+    const [openNavBtn,setOpenNavBoo] = useState(false);
+
+    const [currScrlNum,setCurrSclNum] = useState();
 
     function handleMobileNav () {
         setTranslateX(!translateX);
         setOpenNavBoo(false)
         window.scrollTo({top: currScrlNum, left: 0, behavior: 'smooth'});
     };
+
+    const {themeUI} = useContext(ThemeUI);
     
     return (
-        <section className='relative'>
-            <Navbar></Navbar>
+        <section className={`relative ${!themeUI ? 'bg-[#f1f4f6]':'bg-[#1B2430]'} min-h-screen`}>
+            <Navbar></Navbar>            
             <Outlet></Outlet>
+
+            {/* Mobile Navbar Component */}
             <div className='lg:hidden'>
 
             {/* Mobile Navbar */}

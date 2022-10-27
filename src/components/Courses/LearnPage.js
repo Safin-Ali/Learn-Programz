@@ -9,7 +9,7 @@ import LearnSubject from './LearnSubject';
 const LearnPage = () => {
     const fetchData = useLoaderData();
     return (
-        <div className='grid gap-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-5 '>
+        <div className='grid gap-0 lg:gap-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-5 '>
             <div>
                 <LeftAside></LeftAside>
             </div>
