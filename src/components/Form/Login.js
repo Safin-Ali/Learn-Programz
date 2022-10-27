@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { BsGithub } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
-import { Link,useNavigate } from 'react-router-dom';
+import { Link,useLocation,useNavigate } from 'react-router-dom';
 import { AuthData } from '../Firebase/AuthContext';
 import LoginImg from './images/login-image.png';
 import {BiCodeAlt} from 'react-icons/bi';
@@ -11,16 +11,20 @@ const Login = () => {
 
     const [errtxt,setErrText] = useState();
 
+    const navigate = useNavigate();
+
     const [alrtBoo,setAlrtBoo] = useState(false);
+
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
 
     function handleErr () {
         setAlrtBoo(true);
         setTimeout(()=>setAlrtBoo(false),4000)
     }
 
-    const {logIn,userData,anonyMouseUpdate,signWithGoogle,signWithGithub} = useContext(AuthData);
-
-    const navigate = useNavigate();
+    const {logIn,userData,signWithGoogle,signWithGithub} = useContext(AuthData);
 
     function handleLoginData (e) {
         e.preventDefault();
@@ -29,9 +33,7 @@ const Login = () => {
         const password = form.password.value;
         logIn(email,password)
         .then(result => {
-            anonyMouseUpdate(true)
-            .then(()=>{})
-            navigate('/')
+            navigate(from, { replace: true });
             
         })
         .catch(e=>{
@@ -47,7 +49,7 @@ const Login = () => {
         })
 
     }
-    if(userData?.isAnonymous){
+    if(userData){
         navigate('/')
     }
     else{

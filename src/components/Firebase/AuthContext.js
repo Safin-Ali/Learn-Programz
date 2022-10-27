@@ -35,11 +35,6 @@ const AuthContext = ({children}) => {
             photoURL: `${prflImg}`
         });
     }
-    const anonyMouseUpdate = (bool) => {
-        return updateProfile(auth.currentUser,{
-            isAnonymous: {bool},
-        });
-    }
 
     useEffect(()=>{
         const stopObs = onAuthStateChanged(auth,user=>{
@@ -51,7 +46,7 @@ const AuthContext = ({children}) => {
 
     console.log(userData)
 
-    const authInfo = {logIn,userData,loaded,signUp,logOut,signWithGoogle,signWithGithub,profileUpdate,anonyMouseUpdate};
+    const authInfo = {logIn,userData,loaded,signUp,logOut,signWithGoogle,signWithGithub,profileUpdate};
 
     return (
         <AuthData.Provider value={authInfo}>

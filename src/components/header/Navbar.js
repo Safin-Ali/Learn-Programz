@@ -14,8 +14,6 @@ const Navbar = () => {
 
     const navigate = useNavigate();
 
-    console.log(themeUI)
-
     function handleSignOut () {
         logOut()
         .then(()=>{

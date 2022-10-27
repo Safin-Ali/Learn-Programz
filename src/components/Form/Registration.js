@@ -1,6 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { BsGithub } from 'react-icons/bs';
-import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthData } from '../Firebase/AuthContext';
 import Registerimg from './images/register-image.png';
@@ -46,6 +44,9 @@ const Registration = () => {
                 if(e.message === 'Firebase: Error (auth/email-already-in-use).'){
                     handleErr()
                     setErrText(e.message)
+                }else if(e.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).'){
+                    handleErr()
+                    setErrText(e.message)
                 }
             })
         }
@@ -58,14 +59,16 @@ const Registration = () => {
             return confPass;
         }
         else{
-            form.confPassword.value = '';
+            setErrText('Password Not Match! Please Again Set Password');
+            handleErr();
             setPassError(true)
+            form.confPassword.value = '';
             return null
         }
     }
 
     if(userData) {
-        navigate('/login')
+        navigate('/')
     }
     else{
         return (

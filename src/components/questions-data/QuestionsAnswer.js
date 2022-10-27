@@ -18,7 +18,6 @@ function QuesAnsCard ({data}) {
 
 const QuestionsAnswer = () => {
     const questionsData = useLoaderData();
-    console.log(questionsData)
     if(!questionsData){
         return <div className='flex justify-center items-center min-h-screen'>
         <LoadingAnim></LoadingAnim>
