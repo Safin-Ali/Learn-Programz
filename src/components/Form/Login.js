@@ -5,14 +5,22 @@ import { Link,useNavigate } from 'react-router-dom';
 import { AuthData } from '../Firebase/AuthContext';
 import LoginImg from './images/login-image.png';
 import {BiCodeAlt} from 'react-icons/bi';
+import AlertMsg from '../Alert-Material/AlertMsg';
 
 const Login = () => {
+
+    const [errtxt,setErrText] = useState();
+
+    const [alrtBoo,setAlrtBoo] = useState(false);
+
+    function handleErr () {
+        setAlrtBoo(true);
+        setTimeout(()=>setAlrtBoo(false),4000)
+    }
 
     const {logIn,userData,anonyMouseUpdate,signWithGoogle,signWithGithub} = useContext(AuthData);
 
     const navigate = useNavigate();
-
-    const [shake,setShake] = useState();
 
     function handleLoginData (e) {
         e.preventDefault();
@@ -29,7 +37,12 @@ const Login = () => {
         .catch(e=>{
             console.log(e.message);
             if(e.message === 'Firebase: Error (auth/user-not-found).') {
-
+                handleErr()
+                setErrText(e.message)
+            }
+            else if (e.message=== 'Firebase: Error (auth/wrong-password).') {
+                handleErr()
+                setErrText(e.message)
             }
         })
 
@@ -75,6 +88,9 @@ const Login = () => {
                 </form>
                 </div>
             </section>
+            <div className={alrtBoo ? 'block' : 'hidden'}>
+            <AlertMsg errTxt={errtxt}></AlertMsg>
+            </div>
             </>
         );
     }

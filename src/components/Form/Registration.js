@@ -5,14 +5,25 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthData } from '../Firebase/AuthContext';
 import Registerimg from './images/register-image.png';
 import {BiCodeAlt} from 'react-icons/bi';
+import AlertMsg from '../Alert-Material/AlertMsg';
 
 
 const Registration = () => {
+
     const {signUp,userData,profileUpdate} = useContext(AuthData);
 
     const [passError,setPassError] = useState();
 
     const navigate = useNavigate();
+
+    const [errtxt,setErrText] = useState();
+
+    const [alrtBoo,setAlrtBoo] = useState(false);
+
+    function handleErr () {
+        setAlrtBoo(true);
+        setTimeout(()=>setAlrtBoo(false),4000)
+    }
 
     function handleRegistrationData (e) {
         e.preventDefault();
@@ -32,6 +43,10 @@ const Registration = () => {
             })
             .catch(e=>{
                 console.log(e)
+                if(e.message === 'Firebase: Error (auth/email-already-in-use).'){
+                    handleErr()
+                    setErrText(e.message)
+                }
             })
         }
     
@@ -85,6 +100,9 @@ const Registration = () => {
                     <p>Already Have Account! <br /> Please, <Link className='text-blue-500' to={'/login'}>Log In</Link></p>
                     </div>
                 </form>
+                </div>
+                <div className={alrtBoo ? 'block' : 'hidden'}>
+                <AlertMsg errTxt={errtxt}></AlertMsg>
                 </div>
             </section>
         </>

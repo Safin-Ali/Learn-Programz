@@ -14,6 +14,8 @@ const Navbar = () => {
 
     const navigate = useNavigate();
 
+    console.log(themeUI)
+
     function handleSignOut () {
         logOut()
         .then(()=>{
@@ -23,7 +25,7 @@ const Navbar = () => {
     }
     
     return (
-        <header className='bg-[#f0f4f5] shadow-md'>
+        <header className={`${!themeUI ? 'bg-[#f0f4f5]' : 'bg-[#0C1015]' } shadow-md`}>
             <nav className='flex justify-between container mx-auto p-5'>
                 <div className='flex justify-center items-center'>
                     <Link to={'/home'} className='text-3xl text-slate-800'>Learn<BiCodeAlt className='inline text-pinkBtn text-4xl'></BiCodeAlt>Programz</Link>
@@ -34,7 +36,7 @@ const Navbar = () => {
                         <NavLink to="/learn" className='hover:text-pinkBtn duration-100'>Learn</NavLink>
                     </li>
                     <li className='mx-3'>
-                        <NavLink to="/" className='hover:text-pinkBtn duration-100'>FAQ</NavLink>
+                        <NavLink to="/faq" className='hover:text-pinkBtn duration-100'>FAQ</NavLink>
                     </li>
                     <li className='mx-3'>
                         <NavLink to="/questions/ph/sa" className='hover:text-pinkBtn duration-100'>Blog</NavLink>

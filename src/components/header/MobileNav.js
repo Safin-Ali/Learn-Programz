@@ -8,7 +8,7 @@ const MobileNav = ({handleMNav}) => {
             <AiOutlineClose onClick={()=>handleMNav()} className='text-4xl cursor-pointer text-white absolute right-0'></AiOutlineClose>
             <ul className=' min-h-screen h-full flex justify-center items-center flex-col'>
                 <li className='my-2'><NavLink className={'text-white'} to="/learn">Learn</NavLink></li>
-                <li className='my-2'><NavLink className={'text-white'} to="/">FAQ</NavLink></li>
+                <li className='my-2'><NavLink className={'text-white'} to="/faq">FAQ</NavLink></li>
                 <li className='my-2'><NavLink className={'text-white'} to="/questions/ph/sa">Blog</NavLink></li>
             </ul>
         </div>
