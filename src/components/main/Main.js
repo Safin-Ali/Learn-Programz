@@ -35,7 +35,7 @@ const Main = () => {
             </BsCaretRightFill>
 
             <div>
-                <div className={`mx-auto absolute top-0 ${!translateX ? '-translate-x-full' : 'translate-x-0'}`}>
+                <div className={`mx-auto absolute duration-200 top-0 ${!translateX ? '-translate-x-full' : 'translate-x-0'}`}>
                     <MobileNav bool={translateX} handleMNav={handleMobileNav}></MobileNav>
                 </div>
                 </div>
