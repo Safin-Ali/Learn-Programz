@@ -43,7 +43,7 @@ const TopicsList = () => {
     const {themeUI} = useContext(ThemeUI);
     const apiData = useContext(APIData)
     return (
-        <section className={`my-10 ${!themeUI ? 'text-gray-900' : 'text-slate-200'} container mx-auto`}>
+        <section className={`py-10 ${!themeUI ? 'text-gray-900' : 'text-slate-200'} container mx-auto`}>
             <div className='grid gap-10 justify-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 px-6'>
                 {
                     apiData?.map(element => <TopicsListCard key={element.id} data={element}></  TopicsListCard>)

@@ -10,6 +10,7 @@
  - Custom Auto typing animation
  - Private Router
  - React JS Library
+ - Loading Spinner
  - 404 Error Page
  - Coming Soon page
  - Form Error Alert

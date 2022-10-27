@@ -6,7 +6,7 @@ import Slider from '../slider/Slider';
 const Home = () => {
     const {themeUI} = useContext(ThemeUI);
     return (
-        <main className={`grid ${!themeUI ? 'bg-inherit' : 'bg-[#1B2430]'} grid-cols-1 lg:grid-cols-2 items-center my-10`}>
+        <main className={`grid ${!themeUI ? 'bg-inherit' : 'bg-[#1B2430]'} grid-cols-1 lg:grid-cols-2 items-center py-10`}>
             {/* slider */}
             <div className={`lg:border-r-4 border-pink-500 shadow-md lg:shadow-none`}>
                 <Slider></Slider>

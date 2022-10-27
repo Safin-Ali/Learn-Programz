@@ -4,6 +4,7 @@ import { AuthData } from '../Firebase/AuthContext';
 import Registerimg from './images/register-image.png';
 import {BiCodeAlt} from 'react-icons/bi';
 import AlertMsg from '../Alert-Material/AlertMsg';
+import { ThemeUI } from '../darkTheme/DarkTheme';
 
 
 const Registration = () => {
@@ -12,16 +13,24 @@ const Registration = () => {
 
     const [passError,setPassError] = useState();
 
+    // Theme Boolean Toggle State
+
+    const {themeUI} = useContext(ThemeUI);
+
     const navigate = useNavigate();
 
     const [errtxt,setErrText] = useState();
 
     const [alrtBoo,setAlrtBoo] = useState(false);
 
+     // Get Error Popup Function
+
     function handleErr () {
         setAlrtBoo(true);
         setTimeout(()=>setAlrtBoo(false),4000)
     }
+
+    // handle sign up button action in this function
 
     function handleRegistrationData (e) {
         e.preventDefault();
@@ -38,6 +47,7 @@ const Registration = () => {
                 profileUpdate(userName,userImageUrl)
                 .then(()=>{});
                 navigate('/login');
+                form.reset();
             })
             .catch(e=>{
                 console.log(e)
@@ -53,6 +63,8 @@ const Registration = () => {
     
     }
 
+    // validation pass to confirm pass in this function
+
     function checkPassValid (form,pass,confPass) {
         if(pass === confPass){
             setPassError(false)
@@ -67,40 +79,44 @@ const Registration = () => {
         }
     }
 
+    // if user already logged then automatic redirect home page 
+
     if(userData) {
         navigate('/')
     }
     else{
         return (
         <>
-            <Link to={'/home'} className='text-3xl text-center block text-slate-800 py-[4%]'>Learn<BiCodeAlt className='inline text-pinkBtn text-4xl'></BiCodeAlt>Programz</Link>
-            <section className='flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 mb-5 lg:justify-evenly items-center min-h-full'>
-                    <div>
-                    <img src={Registerimg} alt="" />
+            <Link to={'/home'} className={`text-3xl text-center block ${!themeUI ? 'text-slate-800' : 'text-slate-200'} py-[4%]`}>Learn<BiCodeAlt className='inline text-pinkBtn text-4xl'></BiCodeAlt>Programz</Link>
+            <section className='flex flex-col gap-y-5 lg:gap-y-0 lg:flex-row justify-center items-center max-h-full py-[3.5%]'>
+                <div>
+                 <img src={Registerimg} alt="Vector" />
                 </div>
                 <div className='border px-[6%] md:px-[10%] lg:px-[3%] py-[2%] rounded shadow-md'>
-                    <h3 className='text-center text-3xl uppercase'>Sign Up</h3>
+                <h3 className={`text-center ${!themeUI ? 'text-slate-900' : 'text-slate-200'} text-3xl uppercase`}>Sign Up</h3>
                 <form onSubmit={handleRegistrationData}>
                     <div className='text-center my-3'>
-                        <input type="text" name='userName' placeholder='Enter Full Name' className='px-2 border py-1 w-[95%] rounded-sm' required/>
+                        <input type="text" name='userName' placeholder='Enter Full Name' className={`px-2 border py-1 w-[95%] ${!themeUI ? 'bg-slate-50' : 'bg-slate-800'} rounded-sm' required`}/>
                     </div>
                     <div className='text-center my-3'>
-                        <input type="text" name='userThumb' placeholder='Enter User Image URL' className='px-2 border py-1 w-[95%] rounded-sm' required/>
+                        <input type="text" name='userThumb' placeholder='Enter User Image URL' className={`px-2 border py-1 w-[95%] ${!themeUI ? 'bg-slate-50' : 'bg-slate-800'} rounded-sm' required`}/>
                     </div>
                     <div className='text-center my-3'>
-                        <input type="email" name='email' placeholder='Enter Email' className='px-2 border py-1 w-[95%] rounded-sm' required/>
+                        <input type="email" name='email' placeholder='Enter Email' className={`px-2 border py-1 w-[95%] ${!themeUI ? 'bg-slate-50' : 'bg-slate-800'} rounded-sm' required`}/>
                     </div>
                     <div className='text-center my-3'>
-                        <input type="password" name='password' placeholder='Enter Password' className='px-2 border py-1 w-[95%] rounded-sm' required/>
+                        <input type="password" name='password' placeholder='Enter Password' className={`px-2 border py-1 w-[95%] ${!themeUI ? 'bg-slate-50' : 'bg-slate-800'} rounded-sm' required`}/>
                     </div>
                     <div className='text-center my-3'>
-                        <input type="password" name='confPassword' placeholder='Confirm Password' className={`px-2 border ${passError && 'border-red-600'} py-1 w-[95%] rounded-sm`} required/>
+                        <input type="password" name='confPassword' placeholder='Confirm Password' className={`px-2 border ${!themeUI ? 'bg-slate-50' : 'bg-slate-800'} ${passError && 'border-red-600'} py-1 w-[95%] rounded-sm`} required/>
                     </div>
                     <div className='text-center my-3'>
-                        <button className='bg-blue-600 transition-all hover:bg-blue-700  px-2 py-1 rounded-md text-sky-50'>SignUp</button>
+                        <button className='bg-blue-600 transition-all hover:bg-blue-700  px-2 py-1 rounded-md text-sky-50'>Sign up</button>
                     </div>
-                    <div className='text-center'>
+                    
+                    <div className={`text-center ${!themeUI ? 'text-slate-900' : 'text-slate-200'}`}>
                     <p>Already Have Account! <br /> Please, <Link className='text-blue-500' to={'/login'}>Log In</Link></p>
+                    
                     </div>
                 </form>
                 </div>
@@ -109,7 +125,7 @@ const Registration = () => {
                 </div>
             </section>
         </>
-            );
+        );
     }
 };
 
