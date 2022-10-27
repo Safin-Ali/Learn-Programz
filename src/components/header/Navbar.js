@@ -23,7 +23,7 @@ const Navbar = () => {
     }
     
     return (
-        <header className={`${!themeUI ? 'bg-[#f0f4f5] shadow-md' : 'bg-[#1B2430] shadow-sm shadow-slate-400'} `}>
+        <header className={`${!themeUI ? 'bg-[#f0f4f5] drop-shadow-md' : 'bg-[#1B2430] drop-shadow-md'} `}>
             <nav className='flex justify-between container mx-auto p-5'>
                 <div className='flex justify-center items-center'>
                     <Link to={'/home'} className={`text-3xl ${!themeUI ? 'text-slate-800' : 'text-[#f0f4f5]'} duration-300`}>Learn<BiCodeAlt className='inline text-pinkBtn text-4xl'></BiCodeAlt>Programz</Link>
