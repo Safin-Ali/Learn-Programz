@@ -30,7 +30,6 @@
 .text {
     position: relative;
     overflow: hidden;
-    white-space: nowrap;
 }
 
 .text.changing-text::before{

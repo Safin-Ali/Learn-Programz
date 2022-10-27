@@ -26,15 +26,15 @@ const Login = () => {
 
     const {logIn,userData,signWithGoogle,signWithGithub} = useContext(AuthData);
 
+
     function handleLoginData (e) {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         logIn(email,password)
-        .then(result => {
-            navigate(from, { replace: true });
-            
+        .then(result => {    
+            navigate('/');      
         })
         .catch(e=>{
             console.log(e.message);
@@ -49,8 +49,8 @@ const Login = () => {
         })
 
     }
-    if(userData){
-        navigate('/')
+    if(userData?.uid){
+        navigate(from, { replace: true });
     }
     else{
         return (

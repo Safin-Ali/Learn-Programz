@@ -26,26 +26,26 @@ const Navbar = () => {
         <header className={`${!themeUI ? 'bg-[#f0f4f5]' : 'bg-[#0C1015]' } shadow-md`}>
             <nav className='flex justify-between container mx-auto p-5'>
                 <div className='flex justify-center items-center'>
-                    <Link to={'/home'} className='text-3xl text-slate-800'>Learn<BiCodeAlt className='inline text-pinkBtn text-4xl'></BiCodeAlt>Programz</Link>
+                    <Link to={'/home'} className={`text-3xl ${!themeUI ? 'text-slate-800' : 'text-[#f0f4f5]'} duration-300`}>Learn<BiCodeAlt className='inline text-pinkBtn text-4xl'></BiCodeAlt>Programz</Link>
                 </div>
                 <div className='flex items-center'>
                      <ul className='hidden lg:flex text-slate-900 font-semibold justify-center items-center'>
                     <li className='mx-3'>
-                        <NavLink to="/learn" className='hover:text-pinkBtn duration-100'>Learn</NavLink>
+                        <NavLink to="/learn" className={`hover:text-pinkBtn ${themeUI ? 'text-[#f0f4f5]' : 'text-slate-900'} duration-300`}>Learn</NavLink>
                     </li>
                     <li className='mx-3'>
-                        <NavLink to="/faq" className='hover:text-pinkBtn duration-100'>FAQ</NavLink>
+                        <NavLink to="/faq" className={`hover:text-pinkBtn ${themeUI ? 'text-[#f0f4f5]' : 'text-slate-900'} duration-300`}>FAQ</NavLink>
                     </li>
                     <li className='mx-3'>
-                        <NavLink to="/questions/ph/sa" className='hover:text-pinkBtn duration-100'>Blog</NavLink>
+                        <NavLink to="/questions/ph/sa" className={`hover:text-pinkBtn ${themeUI ? 'text-[#f0f4f5]' : 'text-slate-900'} duration-300`}>Blog</NavLink>
                     </li>
                 </ul>
                     <div className='mx-3'>
                         {
                             themeUI ? 
-                            <BsFillSunFill onClick={()=>setTheme(!themeUI)} className='text-2xl text-gray-900 cursor-pointer'></BsFillSunFill>
+                            <BsFillSunFill onClick={()=>setTheme(!themeUI)} className={`text-2xl ${!themeUI ? 'text-gray-900' : 'text-amber-500'} duration-300 cursor-pointer`}></BsFillSunFill>
                             :
-                            <BsFillMoonFill onClick={()=>setTheme(!themeUI)} className='text-2xl text-gray-900 cursor-pointer'></BsFillMoonFill>
+                            <BsFillMoonFill onClick={()=>setTheme(!themeUI)} className={`text-2xl ${!themeUI ? 'text-gray-900' : 'text-[#f0f4f5]'} duration-300 cursor-pointer`}></BsFillMoonFill>
                         }
                     </div>
                     <div className='mx-3'>
